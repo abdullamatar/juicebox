@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anomaly Detection Results</title>
+    <style>
+        /* CSS for the scrollable container */
+        .scrollable-container {
+            width: 50%; /* Set the width as needed */
+            overflow: auto;
+            white-space: nowrap;
+        }
+        .scrollable-container img {
+            max-width: 100%; /* Ensure the image is not wider than the container */
+            height: auto;
+            transform-origin: center;
+        }
+    </style>
+    <script>
+        var currentRotation = 0;
+
+        function rotateImage(degrees) {
+            currentRotation += degrees;
+            var image = document.querySelector('.scrollable-container img');
+            image.style.transform = 'rotate(' + currentRotation + 'deg)';
+        }
+
+        // JavaScript to toggle the visibility of anomaly images
+        document.querySelectorAll('.anomaly-toggle').forEach(function (button) {
+            button.addEventListener('click', function () {
+                var imageId = this.id + '_image';
+                var imageDiv = document.getElementById(imageId);
+                imageDiv.classList.toggle('hidden');
+            });
+        });
+    </script>
+    </style>
+</head>
+<body>
+    <h1>Anomaly Detection Results</h1>
+
+    <!-- Display the source image in a scrollable container -->
+    <div class="scrollable-container">
+        <img src="{{ url_for('uploaded_file', filename='source_image.jpg') }}" alt="Source Image">
+    </div>
+
+    <!-- Buttons for rotating the image -->
+    <div>
+        <button onclick="rotateImage(90)">Rotate 90° Clockwise</button>
+        <button onclick="rotateImage(-90)">Rotate 90° Counterclockwise</button>
+    </div>
+
+    <!-- List of possible anomalies with toggle buttons -->
+   
