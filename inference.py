@@ -6,7 +6,7 @@ import os
 
 def infer(img_dir_path=None, model_path=None) -> list:
     """
-    Returns a list of predictions for each image in the img_dir_path, optionally probide model_path.
+    Returns a list of predictions for each image in the img_dir_path, optionally provide model_path.
     """
     if img_dir_path is None:
         img_dir_path = "./Reels/heldoutAnomalous"
