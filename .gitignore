@@ -1,3 +1,4 @@
+**/__pycache__
 *logs*
 /weights
 *.bmp # typically bigger than 60 MBS
