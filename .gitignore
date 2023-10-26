@@ -3,3 +3,4 @@
 /weights
 *.bmp # typically bigger than 60 MBS
 Reels
+*.png

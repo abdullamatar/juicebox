@@ -7,8 +7,9 @@ from anomalib.utils.callbacks import (
     PostProcessingConfigurationCallback,
 )
 from anomalib.utils.callbacks.export import ExportCallback, ExportMode
-from anomalib.data.utils import read_image
-from anomalib.deploy import TorchInferencer
+
+# from anomalib.data.utils import read_image
+# from anomalib.deploy import TorchInferencer
 from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import ModelCheckpoint
 from anomalib.data.folder import Folder
@@ -25,8 +26,8 @@ data_module = Folder(
     abnormal_dir="abnormal",
     normal_split_ratio=0.1,
     image_size=(256, 256),
-    train_batch_size=64,
-    eval_batch_size=64,
+    train_batch_size=16,
+    eval_batch_size=16,
     task=TaskType.CLASSIFICATION,
     normalization="imagenet",
     seed=44,
@@ -65,7 +66,7 @@ callbacks = [
     ExportCallback(
         input_size=(256, 256),
         dirpath=str(Path.cwd()),
-        filename="4layer_model.pt",
+        filename="4layer_model_semifinal.pt",
         export_mode=ExportMode.TORCH,
     ),
 ]
@@ -73,11 +74,8 @@ trainer = Trainer(
     callbacks=callbacks,
     accelerator="auto",
     auto_scale_batch_size=False,
-    check_val_every_n_epoch=4,
     devices=1,
     gpus=None,
-    max_epochs=20,
-    num_sanity_val_steps=0,
-    val_check_interval=1.0,
+    max_epochs=60,
 )
 trainer.fit(model=model, datamodule=data_module)
