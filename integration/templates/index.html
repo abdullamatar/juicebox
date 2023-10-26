@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: aliceblue;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Anamoly Detector</title>
+    <style>
+        h1{color:white; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', 'sans-serif';text-align: center;}
+        table tr th{color:black; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', 'sans-serif';text-align: left;}
+        table {width: 100%;}
+        .topnav {background-color: #474747; overflow: hidden;}
+        .topnav a {float: left; color: #f2f2f2; text-align: center; padding: 14px 16px; text-decoration: none;font-size: 17px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
+        .topnav a:hover {background-color: #ddd; color: black;}
+        .topnav a.active { background-color: aliceblue; color: black;}
+    </style>
+</head>
+<body>
+<div class="topnav">
+  <h1>Anomaly Detector</h1>
+  <a class="active" href="/">Insert</a>
+  <a  href="/process_images">Results</a>
+  <a  href="comparison.html">Comparison Results</a>
+
+
+</div>
+<br>
+<br>
+<form method="POST" action="/process_images" enctype="multipart/form-data">
+  <table class="center">
+      <tr>
+          <th>Reference Image</th>
+          <th>Printed Sample</th>
+      </tr>
+      <tr>
+          <td>
+              <div class="form-item form-group">
+                  <button style="align-items: center;">
+                      <input placeholder="Select Ref. Image" type="file" id="Referenceimage" name="template_image" class="form-control" accept="image/*" required style="align-items: center;">
+                  </button>
+              </div>
+          </td>
+          <td>
+              <div class="form-item form-group">
+                  <button style="align-items: center;">
+                      <input placeholder="Select Printed Sample" type="file" id="printedsample" name="source_image" class="form-control" accept="image/*" required style="align-items: center;">
+                  </button>
+              </div>
+          </td>
+      </tr>
+      <tr>
+          <td>
+              <!-- <a href="results.html"> -->
+                  <!-- <button type="submit" value="Upload" style="align-items: center; text-align: center;" target="_self" src="results.html" class="btn btn-primary btn-lg" formaction="uploads/Anomaly" method="get">Upload</button> -->
+                  <input type="submit" value="Upload Images" style="align-items: center; text-align: center;" target="_self" class="btn btn-primary btn-lg">
+                </a>
+          </td>
+      </tr>
+  </table>
+</form>
+
+
+</body>
+</html>
