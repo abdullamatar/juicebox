@@ -4,3 +4,8 @@
 *.bmp # typically bigger than 60 MBS
 Reels
 *.png
+/live_data
+/live_output
+/best_so_far
+*zip*
+*.pt*
