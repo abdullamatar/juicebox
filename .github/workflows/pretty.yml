@@ -20,4 +20,4 @@ jobs:
           pip install black[jupyter]
       - name: lint with black
         run: |
-          black $(git ls-files '*.*py*')
+          black $(git ls-files '*.py')
